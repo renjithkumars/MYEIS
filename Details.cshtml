@@ -1,0 +1,35 @@
+﻿@model MVC_test1.Models.Customer
+
+@{
+    ViewBag.Title = " Customer Details";
+}
+
+<h2> Customer Details</h2>
+
+<table >
+    <tr>
+        <td><b>Customer Id</b></td>
+        <td>@Model.CustomerId </td>
+    </tr>
+    <tr>
+        <td><b>Firstname</b></td>
+        <td>@Model.FirstName </td>
+    </tr>
+    <tr>
+        <td><b>Lastname</b></td>
+        <td>@Model.LastName </td>
+    </tr>
+    <tr>
+        <td><b>City</b></td>
+        <td>@Model.City </td>
+    </tr>
+    <tr>
+        <td><b>Country</b></td>
+        <td>@Model.Country </td>
+    </tr>
+    <tr>
+        <td><b>Phone Number</b></td>
+        <td>@Model.Phone </td>
+    </tr>
+</table>
+
