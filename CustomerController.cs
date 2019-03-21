@@ -10,37 +10,68 @@ using MVC_test1.Models;// This is because the customer class is defined in MVC_t
 
 
 namespace MVC_test1.Controllers
+
 {
+
     public class CustomerController : Controller// Customer controller class
     {
-       
+
         public ActionResult Details(int Id)
         {
-            /* Customer customer= new Customer();// Object of the Customer class
-              /*{
-                  customer.CustomerId = 1;
-                  customer.FirstName = "Rahul";
-                  customer.LastName = "Raghu";
-                  customer.City = "kochin";
-                  customer.Country = "India";
-                  customer.Phone = 12345;
-              };*/
+
             try
             {
                 CustomerContext customercontext = new CustomerContext();
                 Customer customer = customercontext.Customers.Single(c => c.CustomerId == Id);
-
-                /*List<Customer> customer  = customercontext.Customers.ToList();*/
-
 
                 return View(customer);
             }
             catch
             {
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index1", "Customer");
             }
-        
+        }
+        public ActionResult Index1()
+        {
+
+
+            CustomerContext customercontext = new CustomerContext();
+
+            List<Customer> customer = customercontext.Customers.ToList();
+
+
+            return View(customer);
+
+
+        }
+        public ActionResult Index()
+        {
+
+
+            CustomerContext customercontext = new CustomerContext();
+
+            List<Customer> customer = customercontext.Customers.ToList();
+
+
+            return View(customer);
+
+
+        }
+        public ActionResult Filter(int Did, String Dname)
+        {
+
+
+
+            CustomerContext customercontext = new CustomerContext();
+
+            List<Customer> customer = customercontext.Customers.Where(c => c.DepartmentId == Did).ToList();
+
+
+
+            return View(customer);
+
+
         }
     }
 }
