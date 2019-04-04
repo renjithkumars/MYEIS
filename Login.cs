@@ -11,15 +11,16 @@ namespace Login.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Customer
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Login
     {
-        public int CustomerId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public int Phone { get; set; }
-        public int DepartmentId { get; set; }
+        public int UserId { get; set; }
+        [DisplayName("User Name")]
+        public string Username { get; set; }
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
     }
 }
+

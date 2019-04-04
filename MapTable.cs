@@ -12,14 +12,10 @@ namespace Login.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class MapTable
     {
-        public int CustomerId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public int Phone { get; set; }
-        public int DepartmentId { get; set; }
+        public string Place { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }
