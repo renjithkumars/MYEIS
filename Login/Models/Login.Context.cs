@@ -15,10 +15,10 @@ namespace Login.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MyassignmentEntities1 : DbContext
+    public partial class MyassignmentEntities : DbContext
     {
-        public MyassignmentEntities1()
-            : base("name=MyassignmentEntities1")
+        public MyassignmentEntities()
+            : base("name=MyassignmentEntities")
         {
         }
     
@@ -31,19 +31,9 @@ namespace Login.Models
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<MapTable> MapTables { get; set; }
     
-        public virtual ObjectResult<getAllCustomers_Result> getAllCustomers()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getAllCustomers_Result>("getAllCustomers");
-        }
-    
         public virtual ObjectResult<getAll_Result> getAll()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getAll_Result>("getAll");
-        }
-    
-        public virtual ObjectResult<string> getMap()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("getMap");
         }
     
         public virtual ObjectResult<Customer> fun_getAllCustomerss()

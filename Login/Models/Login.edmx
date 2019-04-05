@@ -50,8 +50,6 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
           <Property Name="Longitude" Type="float" Nullable="false" />
         </EntityType>
         <Function Name="getAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="getAllCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="getMap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MyassignmentModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -121,23 +119,13 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
           <Property Name="Latitude" Type="Double" Nullable="false" />
           <Property Name="Longitude" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="MyassignmentEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MyassignmentEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Logins" EntityType="Self.Login" />
           <EntitySet Name="MapTables" EntityType="Self.MapTable" />
-          <FunctionImport Name="getAllCustomers" ReturnType="Collection(MyassignmentModel.getAllCustomers_Result)" />
           <FunctionImport Name="getAll" ReturnType="Collection(MyassignmentModel.getAll_Result)" />
-          <FunctionImport Name="getMap" ReturnType="Collection(String)" />
           <FunctionImport Name="fun_getAllCustomerss" EntitySet="Customers" ReturnType="Collection(MyassignmentModel.Customer)" />
         </EntityContainer>
-        <ComplexType Name="getAllCustomers_Result">
-          <Property Type="Int32" Name="SuplierId" Nullable="false" />
-          <Property Type="String" Name="SuplierName" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="companyId" Nullable="false" />
-          <Property Type="String" Name="companyName" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="city" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="country" Nullable="false" MaxLength="50" />
-        </ComplexType>
         <ComplexType Name="getAll_Result">
           <Property Type="Int32" Name="CustomerId" Nullable="false" />
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
@@ -152,7 +140,7 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyassignmentModelStoreContainer" CdmEntityContainer="MyassignmentEntities1">
+        <EntityContainerMapping StorageEntityContainer="MyassignmentModelStoreContainer" CdmEntityContainer="MyassignmentEntities">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="MyassignmentModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
@@ -184,18 +172,6 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="getAllCustomers" FunctionName="MyassignmentModel.Store.getAllCustomers">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="MyassignmentModel.getAllCustomers_Result">
-                <ScalarProperty Name="SuplierId" ColumnName="SuplierId" />
-                <ScalarProperty Name="SuplierName" ColumnName="SuplierName" />
-                <ScalarProperty Name="companyId" ColumnName="companyId" />
-                <ScalarProperty Name="companyName" ColumnName="companyName" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="country" ColumnName="country" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="getAll" FunctionName="MyassignmentModel.Store.getAll">
             <ResultMapping>
               <ComplexTypeMapping TypeName="MyassignmentModel.getAll_Result">
@@ -209,7 +185,6 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="getMap" FunctionName="MyassignmentModel.Store.getMap" />
           <FunctionImportMapping FunctionImportName="fun_getAllCustomerss" FunctionName="MyassignmentModel.Store.getAll" />
         </EntityContainerMapping>
       </Mapping>

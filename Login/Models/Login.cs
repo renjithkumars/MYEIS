@@ -23,4 +23,3 @@ namespace Login.Models
         public string Password { get; set; }
     }
 }
-
