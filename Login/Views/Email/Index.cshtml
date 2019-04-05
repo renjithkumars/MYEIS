@@ -1,4 +1,4 @@
-﻿model Login.Models.gmail
+﻿@model Login.Models.gmail
 @{
     ViewBag.Title = "Index";
 }
@@ -17,8 +17,8 @@
                 <h1>Send Your mail</h1>
                 <table>
                     <tr>
-                        <td style="width:80px"> To: </td>
-                        <td> @Html.TextBoxFor(model => model.To)    </td>
+                        <td style="width:150px"> To: </td>
+                        <td> @Html.TextBoxFor(model =>model.To)    </td>
                     </tr>
                     <tr>
                         <td> Subject: </td>
