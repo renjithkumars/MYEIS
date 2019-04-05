@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Login.Models;
 
 namespace Login.Controllers
-{
+{ 
     public class LoginController : Controller
     {
         // GET: Login
