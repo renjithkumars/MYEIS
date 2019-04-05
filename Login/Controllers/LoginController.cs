@@ -20,15 +20,15 @@ namespace Login.Controllers
         [HttpPost]
         public ActionResult Auth(Login.Models.Login usermodel)
         {
-            using (MyassignmentEntities1 db = new MyassignmentEntities1())
+            using (MyassignmentEntities db = new MyassignmentEntities())
             {
-           // var userdetails = db.Logins.Where(a => a.Username==usermodel.Username && a.Password==usermodel.Password).FirstOrDefault();
-               // if (userdetails != null)
+           var userdetails = db.Logins.Where(a => a.Username==usermodel.Username && a.Password==usermodel.Password).FirstOrDefault();
+                if (userdetails != null)
                 {
-                    return RedirectToAction("Index", "Customer","Anoop");
+                    return RedirectToAction("Index", "Customer",userdetails);
                 }
             }
-           // return RedirectToAction("Login");
+            return RedirectToAction("Login");
             
         }
     }

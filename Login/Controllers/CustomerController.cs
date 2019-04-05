@@ -14,7 +14,7 @@ namespace Login.Controllers
         {
             
 
-            MyassignmentEntities1 myassignmentEntities = new MyassignmentEntities1();
+            MyassignmentEntities myassignmentEntities = new MyassignmentEntities();
             if (user.Username == "Anoop")
             {
                 var detail = myassignmentEntities.fun_getAllCustomerss().ToList();

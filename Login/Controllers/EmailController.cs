@@ -14,7 +14,6 @@ namespace Login.Controllers
         // GET: Email
         public ActionResult Index()
         {
-             int test=2;
             return View();
         }
         [HttpPost]
