@@ -199,6 +199,7 @@
     <Compile Include="Models\MapTable.cs">
       <DependentUpon>Login.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
