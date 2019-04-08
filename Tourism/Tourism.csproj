@@ -261,10 +261,11 @@
     <Content Include="Views\Login\Login1.cshtml" />
     <Content Include="Views\Map\MapDisplay.cshtml" />
     <Content Include="Views\Map\Map.cshtml" />
+    <Content Include="Views\Weather\Index.cshtml" />
+    <Content Include="Views\Weather\Weather.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Weather\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

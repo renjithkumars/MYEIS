@@ -1,0 +1,43 @@
+﻿@model Login.Models.Login
+
+
+
+<h2>Weather</h2>
+<p id="Place"></p>
+<p id="Temperature"></p>
+<p id="Humidity"></p>
+<label>Enter city</label>
+<input type="text" id="a1" value="City" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<button>Get Weather</button>
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            var city = JSON.stringify(document.getElementById(a1));
+         
+
+          /*  $.ajax({
+
+                url: " /GetWether/Weather",
+                type: "POST",
+                data: city,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                error: function (xhr) {
+                    alert('Error: ' + xhr.statusText);
+                },
+                success: function (result) {
+                    Citty(result);
+                },
+            });*/
+            $.get('@Url.Action("Getwether","Weather")', function (response) {
+
+                console.log(response);
+                $("#Place").text(response.name);
+            });
+           
+        });
+    });
+
+
+</script>
