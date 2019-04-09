@@ -16,7 +16,7 @@
             var city = JSON.stringify(document.getElementById(a1));
          
 
-          /*  $.ajax({
+            $.ajax({
 
                 url: " /GetWether/Weather",
                 type: "POST",
@@ -29,7 +29,7 @@
                 success: function (result) {
                     Citty(result);
                 },
-            });*/
+            });
             $.get('@Url.Action("Getwether","Weather")', function (response) {
 
                 console.log(response);
