@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Login.Models.getAllCustomers_Result>
+
+@{
+    ViewBag.Title = "q";
+}
+
+<h2>q</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SuplierId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.companyId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.companyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuplierId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.companyId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.companyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.country)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

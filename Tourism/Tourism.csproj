@@ -263,6 +263,7 @@
     <Content Include="Views\Map\Map.cshtml" />
     <Content Include="Views\Weather\Index.cshtml" />
     <Content Include="Views\Weather\Weather.cshtml" />
+    <Content Include="Views\Weather\q.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
