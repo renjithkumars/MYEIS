@@ -13,25 +13,9 @@
 <script>
     $(document).ready(function () {
         $("button").click(function () {
-            var city = JSON.stringify(document.getElementById(a1));
-         
 
-            $.ajax({
-
-                url: " /GetWether/Weather",
-                type: "POST",
-                data: city,
-                dataType: 'json',
-                contentType: "application/json; charset=utf-8",
-                error: function (xhr) {
-                    alert('Error: ' + xhr.statusText);
-                },
-                success: function (result) {
-                    Citty(result);
-                },
-            });
-            $.get('@Url.Action("Getwether","Weather")', function (response) {
-
+            $.get("http://api.openweathermap.org/data/2.5/weather?q=Dublin&APPID=e911d33d2a09374dae45a32724aef3fe&unit=imperial", function (response) {
+            
                 console.log(response);
                 $("#Place").text(response.name);
             });

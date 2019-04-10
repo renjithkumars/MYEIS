@@ -21,8 +21,7 @@ namespace Login.Controllers
             return Json(weather.getWeather(url), JsonRequestBehavior.AllowGet);
         }
         public ActionResult Weather()
-        {
-            
+        {            
             return View();
         }
         public class Citty
