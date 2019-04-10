@@ -258,7 +258,6 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Email\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Login\Login1.cshtml" />
     <Content Include="Views\Map\MapDisplay.cshtml" />
     <Content Include="Views\Map\Map.cshtml" />
     <Content Include="Views\Weather\Weather.cshtml" />
