@@ -171,13 +171,16 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>Login.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\getAllCustomers_Result.cs">
+    <Compile Include="Models\getAllLocations_Result.cs">
       <DependentUpon>Login.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getAll_Result.cs">
       <DependentUpon>Login.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\gmail.cs" />
+    <Compile Include="Models\Location.cs">
+      <DependentUpon>Login.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Login.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -219,6 +222,7 @@
       <DependentUpon>Login.edmx</DependentUpon>
       <LastGenOutput>Login1.cs</LastGenOutput>
     </Content>
+    <Content Include="Photos\Dubin.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -257,10 +261,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Email\Index.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Map\MapDisplay.cshtml" />
     <Content Include="Views\Map\Map.cshtml" />
     <Content Include="Views\Weather\Weather.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

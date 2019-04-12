@@ -26,6 +26,24 @@ warning 6002: The table/view 'Myassignment.dbo.Customer' does not have a primary
           <Property Name="DepartmentId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Myassignment.dbo.Locations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Place" />
+            <PropertyRef Name="County" />
+            <PropertyRef Name="Photos" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Place" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="County" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Photos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Myassignment.dbo.Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Login">
           <Key>
@@ -50,6 +68,7 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
           <Property Name="Longitude" Type="float" Nullable="false" />
         </EntityType>
         <Function Name="getAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllLocations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MyassignmentModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -61,6 +80,16 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
     [Customer].[Phone] AS [Phone], 
     [Customer].[DepartmentId] AS [DepartmentId]
     FROM [dbo].[Customer] AS [Customer]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Locations" EntityType="Self.Locations" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Locations].[Id] AS [Id], 
+    [Locations].[Place] AS [Place], 
+    [Locations].[County] AS [County], 
+    [Locations].[Photos] AS [Photos], 
+    [Locations].[Latitude] AS [Latitude], 
+    [Locations].[Longitude] AS [Longitude]
+    FROM [dbo].[Locations] AS [Locations]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -125,6 +154,9 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
           <EntitySet Name="MapTables" EntityType="Self.MapTable" />
           <FunctionImport Name="getAll" ReturnType="Collection(MyassignmentModel.getAll_Result)" />
           <FunctionImport Name="fun_getAllCustomerss" EntitySet="Customers" ReturnType="Collection(MyassignmentModel.Customer)" />
+          <EntitySet Name="Locations" EntityType="MyassignmentModel.Location" />
+          <FunctionImport Name="getAllLocations" ReturnType="Collection(MyassignmentModel.getAllLocations_Result)" />
+          <FunctionImport Name="fun_getLocations" EntitySet="Locations" ReturnType="Collection(MyassignmentModel.Location)" />
         </EntityContainer>
         <ComplexType Name="getAll_Result">
           <Property Type="Int32" Name="CustomerId" Nullable="false" />
@@ -134,6 +166,30 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
           <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="Phone" Nullable="false" />
           <Property Type="Int32" Name="DepartmentId" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Place" />
+            <PropertyRef Name="County" />
+            <PropertyRef Name="Photos" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Place" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="getAllLocations_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Place" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="County" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Photos" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Latitude" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Longitude" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -186,6 +242,31 @@ warning 6002: The table/view 'Myassignment.dbo.MapTable' does not have a primary
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="fun_getAllCustomerss" FunctionName="MyassignmentModel.Store.getAll" />
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="MyassignmentModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Photos" ColumnName="Photos" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getAllLocations" FunctionName="MyassignmentModel.Store.getAllLocations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyassignmentModel.getAllLocations_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Photos" ColumnName="Photos" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fun_getLocations" FunctionName="MyassignmentModel.Store.getAllLocations" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

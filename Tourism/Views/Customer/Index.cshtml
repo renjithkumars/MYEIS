@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Login.Models.Customer>
+﻿@model IEnumerable<Login.Models.Location>
+
 
 @{
     ViewBag.Title = "Index";
@@ -17,13 +18,13 @@
     <tr>
         <th>
 
-            Customer Id
+            Id
         </th>
         <th>
-            First Name
+            Place
         </th>
         <th>
-            Last Name
+            County
         </th>
     </tr>
 
@@ -31,17 +32,17 @@
     {
         <tr>
             <td>
-                @item.CustomerId
+                @item.Id
             </td>
             <td>
-                @item.FirstName
+                @item.Place
             </td>
             <td>
-                @item.LastName
+                @item.County
             </td>
             <td>
-                @Html.ActionLink("Location", "Map", "Map" ) |
-                @Html.ActionLink("Weather", "Weather","Weather") |
+                @Html.ActionLink("Location", "Map", "Map") |
+                @Html.ActionLink("Weather", "Weather", "Weather") |
             </td>
         </tr>
 

@@ -30,6 +30,7 @@ namespace Login.Models
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<MapTable> MapTables { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
     
         public virtual ObjectResult<getAll_Result> getAll()
         {
@@ -44,6 +45,21 @@ namespace Login.Models
         public virtual ObjectResult<Customer> fun_getAllCustomerss(MergeOption mergeOption)
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("fun_getAllCustomerss", mergeOption);
+        }
+    
+        public virtual ObjectResult<getAllLocations_Result> getAllLocations()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getAllLocations_Result>("getAllLocations");
+        }
+    
+        public virtual ObjectResult<Location> fun_getLocations()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Location>("fun_getLocations");
+        }
+    
+        public virtual ObjectResult<Location> fun_getLocations(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Location>("fun_getLocations", mergeOption);
         }
     }
 }
