@@ -222,7 +222,8 @@
       <DependentUpon>Login.edmx</DependentUpon>
       <LastGenOutput>Login1.cs</LastGenOutput>
     </Content>
-    <Content Include="Photos\Dubin.jpeg" />
+    <Content Include="Photos\Dubin.jpg" />
+    <Content Include="Photos\Wicklow.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
