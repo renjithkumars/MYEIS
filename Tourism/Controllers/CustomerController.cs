@@ -18,7 +18,6 @@ namespace Login.Controllers
             if (user.Username == "Anoop")
             {
                 var detail = myassignmentEntities.fun_getLocations().ToList();
-            
 
                 return View(detail);
 
@@ -28,10 +27,6 @@ namespace Login.Controllers
                 return View(details);
 
             
-        }
-        public ActionResult Images(string photo)
-        {
-            return View(photo);
         }
     }
 }
