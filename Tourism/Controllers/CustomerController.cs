@@ -17,7 +17,8 @@ namespace Login.Controllers
             MyassignmentEntities myassignmentEntities = new MyassignmentEntities();
             if (user.Username == "Anoop")
             {
-                var detail = myassignmentEntities.fun_getAllCustomerss().ToList();
+                var detail = myassignmentEntities.fun_getLocations().ToList();
+            
 
                 return View(detail);
 
@@ -27,6 +28,10 @@ namespace Login.Controllers
                 return View(details);
 
             
+        }
+        public ActionResult Images(string photo)
+        {
+            return View(photo);
         }
     }
 }

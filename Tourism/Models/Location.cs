@@ -10,14 +10,15 @@
 namespace Login.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class getAllCustomers_Result
+    public partial class Location
     {
-        public int SuplierId { get; set; }
-        public string SuplierName { get; set; }
-        public int companyId { get; set; }
-        public string companyName { get; set; }
-        public string city { get; set; }
-        public string country { get; set; }
+        public int Id { get; set; }
+        public string Place { get; set; }
+        public string County { get; set; }
+        public string Photos { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
     }
 }

@@ -1,48 +1,10 @@
-﻿@model IEnumerable<Login.Models.Customer>
+﻿@model Login.Models.Location
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-
-    <br />
-    @Html.ActionLink("Mail to Admin", "Index", "Email")
-
+va
+ActionLink("Back to List", "Index")
 </p>
-<table class="table">
-    <tr>
-        <th>
-
-            Customer Id
-        </th>
-        <th>
-            First Name
-        </th>
-        <th>
-            Last Name
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @item.CustomerId
-            </td>
-            <td>
-                @item.FirstName
-            </td>
-            <td>
-                @item.LastName
-            </td>
-            <td>
-                @Html.ActionLink("Location", "Map", "Map" ) |
-                @Html.ActionLink("Weather", "Weather","Weather") |
-            </td>
-        </tr>
-
-    }
