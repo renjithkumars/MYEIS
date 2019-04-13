@@ -18,7 +18,7 @@ namespace Login.Controllers
             if (user.Username == "Anoop")
             {
                 var detail = myassignmentEntities.fun_getLocations().ToList();
-
+                
                 return View(detail);
 
             }

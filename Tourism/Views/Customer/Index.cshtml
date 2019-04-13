@@ -7,9 +7,8 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-    <img src="~/Photos/Dubin.jpg"
-/>
+    @Html.ActionLink("Mail to Admin", "Index","Email")
+   
 </p>
 <table class="table">
     <tr>
@@ -41,9 +40,9 @@
             @Html.DisplayFor(modelItem => item.County)
         </td>
         <td>
-           
-            
-            <img src="@Url.Content(@item.Photos)" width="150" height="100" />
+
+            <img src="~/Photos/Dubin.jpg" />
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Latitude)
@@ -53,7 +52,7 @@
         </td>
         <td>
         <td>
-            @Html.ActionLink("Location", "Map", "Map") |
+            @Html.ActionLink("Location", "Mapp", "Map", new {item.Id}, null)  |
             @Html.ActionLink("Weather", "Weather", "Weather") |
         </td>
         </td>

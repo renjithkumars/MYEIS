@@ -1,7 +1,9 @@
-﻿@model Login.Models.Map
+﻿@model IEnumerable<Login.Models.Location>
 
 @{
-    ViewBag.Title = "MapDisplay";
+  /**/
+
+                ViewBag.Title = "MapDisplay";
 }
 
 @ViewBag.lati;
@@ -27,19 +29,21 @@
     </style>
 </head>
 <body>
-
-    <div class="container" id="map"></div>
+    @foreach (var item in Model)
+    {
+        <div class="container" id="map"></div>
     <script>
             var map;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: { lat: @ViewBag.lati, lng: @ViewBag.longi},
+                    center: { lat: @item.Latitude, lng: @item.Longitude},
                     zoom: 16
                 });
             }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_qY0NEmZ1n-SvSD0wLB8EUYwUCAUC8DM&callback=initMap" ;
             async defer></script>
+    }
 </body>
 
 </body>

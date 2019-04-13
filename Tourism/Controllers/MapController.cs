@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Login.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,22 +15,18 @@ namespace Login.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Mapp(Login.Models.Map parameters)
+        
+        public ActionResult Mapp(string id)
         {
+            int Id=( Convert.ToInt32(id)); 
+             MyassignmentEntities myassignmentEntities = new MyassignmentEntities();
 
-            /* var map = new List<double>();
-             map.Add(Convert.ToDouble(parameters.latitude));
-             map.Add( Convert.ToDouble(parameters.logitude));*/
-            ViewBag.lati =parameters.latitude;
-            ViewBag.longi =parameters.logitude;
+            var details =myassignmentEntities.fun_getLocations().Where(a => a.Id == Id).ToList();
+            
 
-            return View("MapDisplay");
+            return View(details);
         }
-        public ActionResult MapDisplay()
-        {
-            return View();
-        }
+       
     }
 
 }
