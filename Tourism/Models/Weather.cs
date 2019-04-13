@@ -19,5 +19,10 @@ namespace Login.Models
             return jsonContent;
         }
     }
+        public class URL
+        {
+            public string url { get; set; }
+        }
+    
 }
 

@@ -263,9 +263,9 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Email\Index.cshtml" />
     <Content Include="Views\Map\Map.cshtml" />
-    <Content Include="Views\Weather\Weather.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Map\Mapp.cshtml" />
+    <Content Include="Views\Weather\Weather.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
