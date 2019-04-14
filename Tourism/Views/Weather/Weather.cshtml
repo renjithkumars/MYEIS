@@ -10,27 +10,27 @@
 <p id="Humidity"></p>
 <p id="Pressure"></p>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<button>Get Weather</button>
+
 <script>
 
 
     $(document).ready(function () {
-        $("button").click(function () {
+        
 
             $.get("@Url.Action("GetWether","Weather","Dublin")", function (response) {
 
                 console.log(response);
 
 
-               Place: $("#Place").text(response.name);
+                $("#Place").text(response.name);
 
-                Temperature: $("#Temperature").text(response.main.temp);
+                 $("#Temperature").text(response.main.temp);
 
-              Pressure: $("#Pressure").text(response.main.pressure);
+              $("#Pressure").text(response.main.pressure);
 
             });
 
-        });
+        
     });
 
 
