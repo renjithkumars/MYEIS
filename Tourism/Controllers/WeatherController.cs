@@ -13,19 +13,14 @@ namespace Login.Controllers
 
               // GET: Weather
              // [HttpPost]
-        public JsonResult GetWether( )
+        public JsonResult GetWether(string dta )
         {
-            string api = "&APPID=e911d33d2a09374dae45a32724aef3fe&unit=imperial";
-
-            string url = string.Concat("http://api.openweathermap.org/data/2.5/weather?q=" ,"Dublin" , "&APPID=e911d33d2a09374dae45a32724aef3fe&unit=imperial");
             Weather weather = new Weather();
-            return Json(weather.getWeather(url), JsonRequestBehavior.AllowGet);
+            return Json(weather.getWeather(), JsonRequestBehavior.AllowGet);
         }
         public ActionResult Weather()
         {
-            var link = new URL();
-            link.url = string.Concat("http://api.openweathermap.org/data/2.5/weather?q=", "Dublin", "&APPID=e911d33d2a09374dae45a32724aef3fe&unit=imperial");
-            return View(link);
+            return View();
         }
         public class Citty
         {

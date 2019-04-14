@@ -1,7 +1,5 @@
-﻿@model Login.Models.URL
-
-@{
-    /*"http://api.openweathermap.org/data/2.5/weather?q=Dublin&APPID=e911d33d2a09374dae45a32724aef3fe&unit=imperial"*/
+﻿@{
+    /**/
 
     ViewBag.Title = "Weather";
 }
@@ -11,8 +9,6 @@
 <p id="Temperature"></p>
 <p id="Humidity"></p>
 <p id="Pressure"></p>
-<label>Enter city</label>
-<input type="text" id="a1" value="City" />
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <button>Get Weather</button>
 <script>
@@ -21,7 +17,7 @@
     $(document).ready(function () {
         $("button").click(function () {
 
-            $.get("http://api.openweathermap.org/data/2.5/weather?q=Dublin&APPID=e911d33d2a09374dae45a32724aef3fe&unit=imperial", function (response) {
+            $.get("@Url.Action("GetWether","Weather","Dublin")", function (response) {
 
                 console.log(response);
 
