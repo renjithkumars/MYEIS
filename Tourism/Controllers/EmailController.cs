@@ -16,6 +16,7 @@ namespace Login.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(Login.Models.gmail mail)
         {
