@@ -1,23 +1,29 @@
-﻿@{
+﻿
+
+
+@{
     /**/
 
     ViewBag.Title = "Weather";
 }
 
 <h2>Weather</h2>
+<label> Place</label>
 <p id="Place"></p>
+<label> Temperature :</label>
 <p id="Temperature"></p>
-<p id="Humidity"></p>
+<label> Pressure :</label>
 <p id="Pressure"></p>
+
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 
 <script>
 
 
     $(document).ready(function () {
-        
 
-            $.get("@Url.Action("GetWether","Weather","Dublin")", function (response) {
+
+            $.get("@Url.Action("GetWether","Weather" )", function (response) {
 
                 console.log(response);
 
@@ -30,9 +36,11 @@
 
             });
 
-        
+
     });
 
 
 </script>
+
+
 

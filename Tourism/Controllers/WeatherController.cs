@@ -13,18 +13,15 @@ namespace Login.Controllers
 
               // GET: Weather
              // [HttpPost]
-        public JsonResult GetWether(string dta )
+        public JsonResult GetWether()
         {
             Weather weather = new Weather();
             return Json(weather.getWeather(), JsonRequestBehavior.AllowGet);
         }
         public ActionResult Weather()
         {
-            return View();
+              return View();
         }
-        public class Citty
-        {
-            public string City { get; set; }
-        }
+        
     }
 }
