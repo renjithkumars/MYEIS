@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Login.Models;
 using System.Net;
 using System.Net.Mail;
+using System.Threading;
 
 namespace Login.Controllers
 {
@@ -39,6 +40,7 @@ namespace Login.Controllers
                 smtp.Credentials = nc;
                 smtp.Send(mailMessage);
                 ViewBag.Message = "Mail has been sent successfuly";
+
                 if (ModelState.IsValid)
                 {
 
